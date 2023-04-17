@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<form id="form" method="#" action="">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</form>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis deserunt enim eveniet labore magnam non odit
+    quos! Aspernatur aut error inventore ipsum, iusto nihil nulla officiis sint. Officiis, sequi!</p>
+<button type="button" id="add">Add</button>
+</body>
+<script>
+  const initSubmit = (e) => {
+      $("#submit").click(function(){
+            alert("submit");
+      });
+  }
+  $('#add').click(function () {
+    $.ajax({
+        url: "./html2.html",
+        type: "GET",
+        dataType: "html",
+        success: function (data) {
+           $("#form").append(data);
+            initSubmit();
+        },
+        error: function (xhr, status) {
+            alert("Error");
+        }
+    });
+  });
+</script>
+</html>
